@@ -24,12 +24,20 @@ function getComputerChoice()
 let humanScore = 0;
 let computerScore = 0;
 let roundCount = 0;
-const humanSelection = document.getElementById('humanChoice');
-const computerSelection = document.getElementById('computerChoice');
+
+const humanSelection = document.getElementById('hchoice');
+const computerSelection = document.getElementById('cchoice');
 const count = document.getElementById('roundNo');
-const humanRecord = document.getElementById('humanScore');
-const computerRecord = document.getElementById('computerScore');
+
+const humanRecord = document.getElementById('hscore');
+humanRecord.textContent = '0';
+
+const computerRecord = document.getElementById('cscore');
+computerRecord.textContent = '0';
+
 const resultText = document.getElementById('result');
+const roundWinner =  document.getElementById('winner');
+roundWinner.textContent = '';
 
 function RestartGame()
 {
@@ -37,17 +45,21 @@ function RestartGame()
     computerScore = 0;
     roundCount = 0;
 
-   humanSelection.textContent = `Human Choice : `;
-   computerSelection.textContent = `Computer Choice : `;
+   humanSelection.textContent = ``;
+   computerSelection.textContent = ``;
    count.textContent = `Round : ${roundCount}`;
-   humanRecord.textContent = `Human Score : ${humanScore}`;
-   computerRecord.textContent = `Computer Score : ${computerScore}`;
+
+   humanRecord.textContent = `${humanScore}`;
+   computerRecord.textContent = `${computerScore}`;
+
    resultText.textContent = '';
-   document.getElementById('restart').textContent = "Game Restarted!";
+   roundWinner.textContent = '';
+   restartDiv.textContent = "Game Restarted!";
 }
 
 function playRound(event)
 {
+
     let humanChoice = event.target.textContent;
     console.log("human choice : ", humanChoice);
 
@@ -55,16 +67,16 @@ function playRound(event)
     console.log('computer choice : ', computerChoice);
 
     roundCount++;
+    restartDiv.textContent = '';
+    restartDiv.appendChild(Restart);
 
-    humanSelection.textContent = `Human Choice : ${humanChoice}`;
-    computerSelection.textContent = `Computer Choice : ${computerChoice}`;
+    humanSelection.textContent = `${humanChoice}`;
+    computerSelection.textContent = `${computerChoice}`;
     count.textContent = `Round : ${roundCount}`;
-    humanRecord.textContent = `Human Score : ${humanScore}`;
-    computerRecord.textContent = `Computer Score : ${computerScore}`;
 
     if(humanChoice === computerChoice)
     {
-        resultText = "Oops! It's a tie!";
+        resultText.textContent = "Oops! It's a tie!";
     }
 
     if( humanChoice === RPS[0] && computerChoice === RPS[1] ||
@@ -74,24 +86,32 @@ function playRound(event)
     {
         resultText.textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
+        computerRecord.textContent = `${computerScore}`;
+        
     }
     else 
     {
         resultText.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
+        humanRecord.textContent = `${humanScore}`;
     }
 
     if(humanScore === 5 || computerScore === 5)
     {
         if(humanScore > computerScore)
         {
-            document.getElementById('winner').textContent = `Round Winner : You!`;
+           roundWinner.textContent = `Round Winner : You!`;
         }
         else
         {
-            document.getElementById('winner').textContent = `Round Winner : Computer!`;
+            roundWinner.textContent = `Round Winner : Computer!`;   
         }
-        RestartGame();
+        setTimeout(RestartGame, 7000);
+        
+    }
+    else
+    {
+        roundWinner.textContent = '';
     }
 }
 

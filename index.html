@@ -4,21 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <h1>Rock Paper Scissor</h1>
     <div class="content">
         
     </div>
-    <p id="humanChoice"> Human Choice : </p>
-    <p id="computerChoice">Computer Choice : </p>
-    <h4 id="roundNo">Round : </h4>
-    <div class="scoreboard">
-        <p id="humanScore"> Human Score : </p>
-        <p id="computerScore">Computer Score : </p>
-        <p id="result"></p>
-        <h5 id="winner">Round Winner: </h5>
+
+    <div class="choices">
+        <div id="humanChoice"> 
+            <p>Human Choice</p>
+            <p id="hchoice"></p>
+        </div>
+        
+        <div id="computerChoice"> 
+            <p>Computer Choice</p>
+            <p id="cchoice"></p>
+        </div>
     </div>
+
+    <h4 id="roundNo">Round : </h4>
+
+    <div class="scoreboard">
+        <div id="humanScore"> 
+            <p>Human Score</p>
+            <p id="hscore"></p>
+        </div>
+        <div id="computerScore"> 
+            <p>Computer Score</p>
+            <p id="cscore"></p>
+        </div>
+        
+    </div>
+
+    <p id="result"></p>
+    
+    <h5 id="winner">Round Winner: </h5>
+
     <div id="restart"></div>
     <script src="game.js">
         
