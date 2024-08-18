@@ -81,7 +81,7 @@ function playRound(event)
         humanScore++;
     }
 
-    if(roundCount === 6)
+    if(humanScore === 5 || computerScore === 5)
     {
         if(humanScore > computerScore)
         {
