@@ -42,6 +42,7 @@ function RestartGame()
    count.textContent = `Round : ${roundCount}`;
    humanRecord.textContent = `Human Score : ${humanScore}`;
    computerRecord.textContent = `Computer Score : ${computerScore}`;
+   resultText.textContent = '';
    document.getElementById('restart').textContent = "Game Restarted!";
 }
 
