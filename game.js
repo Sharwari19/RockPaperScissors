@@ -25,7 +25,7 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCount = 0;
 
-function playRound()
+function playRound(event)
 {
     let humanChoice = getHumanChoice();
     console.log("human choice : ", humanChoice);
@@ -47,3 +47,18 @@ function playRound()
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
     }
 }
+
+const Rock = document.createElement("button");
+const Paper = document.createElement("button");
+const Scissors = document.createElement("button");
+
+Rock.textContent = "Rock";
+Paper.textContent = "Paper";
+scissor.textContent = "Scissors";
+
+const div = document.querySelector('content');
+
+[Rock, Paper, Scissors].forEach(button => {
+    div.appendChild(button);
+    button.addEventListener('click', playRound);
+})
