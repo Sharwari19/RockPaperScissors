@@ -9,17 +9,17 @@ function getComputerChoice()
     return RPS[randomNumber];
 }
 
-function getHumanChoice()
-{
-    let answer = prompt("Rock, Paper or Scissors?");
-    if(!isNaN(answer))
-    {
-       alert("Invalid Input");   
-       return; 
-    }
+// function getHumanChoice()
+// {
+//     let answer = prompt("Rock, Paper or Scissors?");
+//     if(!isNaN(answer))
+//     {
+//        alert("Invalid Input");   
+//        return; 
+//     }
 
-    return answer;
-}
+//     return answer;
+// }
 
 let humanScore = 0;
 let computerScore = 0;
@@ -47,7 +47,7 @@ function RestartGame()
 
 function playRound(event)
 {
-    let humanChoice = getHumanChoice();
+    let humanChoice = event.target.textContent;
     console.log("human choice : ", humanChoice);
 
     let computerChoice = getComputerChoice();
@@ -101,7 +101,7 @@ const Restart = document.createElement("button");
 
 Rock.textContent = "Rock";
 Paper.textContent = "Paper";
-Scissor.textContent = "Scissors";
+Scissors.textContent = "Scissors";
 Restart.textContent = "Restart";
 
 const buttons = [Rock, Paper, Scissors];
