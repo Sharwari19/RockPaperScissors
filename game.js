@@ -8,3 +8,15 @@ function getComputerChoice()
     console.log('randomNumber : ', randomNumber);
     return RPS[randomNumber];
 }
+
+function getHumanChoice()
+{
+    let answer = prompt("Rock, Paper or Scissors?");
+    if(!isNaN(answer))
+    {
+       alert("Invalid Input");   
+       return; 
+    }
+
+    return answer;
+}
