@@ -47,11 +47,20 @@ function playRound(event)
         humanChoice === RPS[2] && computerChoice === RPS[0] 
     )
     {
-        document.getElementById('winner').textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
+        document.getElementById('result').textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
     }
     else 
     {
-        document.getElementById('winner').textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+        document.getElementById('result').textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+    }
+
+    if((humanScore > computerScore) && roundCount === 6)
+    {
+        document.getElementById('winner').textContent = `Round Winner : You!`;
+    }
+    else if((humanScore < computerScore) && roundCount === 6)
+    {
+        document.getElementById('winner').textContent = `Round Winner : Computer!`;
     }
 }
 
