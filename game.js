@@ -35,16 +35,23 @@ function playRound(event)
 
     roundCount++;
 
+    document.getElementById('humanChoice').textContent = `Human Choice : ${humanChoice}`;
+    document.getElementById('computerChoice').textContent = `Computer Choice : ${computerChoice}`;
+    document.getElementById('roundNo').textContent = `Round : ${roundCount}`;
+    document.getElementById('humanScore').textContent = `Human Score : ${humanScore}`;
+    document.getElementById('computerScore').textContent = `Computer Score : ${computerScore}`;
+
+
     if( humanChoice === RPS[0] && computerChoice === RPS[1] ||
         humanChoice === RPS[1] && computerChoice === RPS[2] ||
         humanChoice === RPS[2] && computerChoice === RPS[0] 
     )
     {
-        console.log(`You loose! ${computerChoice} beats ${humanChoice}`);
+        document.getElementById('winner').textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
     }
     else 
     {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        document.getElementById('winner').textContent = `You win! ${humanChoice} beats ${computerChoice}`;
     }
 }
 
@@ -62,3 +69,4 @@ const div = document.querySelector('content');
     div.appendChild(button);
     button.addEventListener('click', playRound);
 })
+
