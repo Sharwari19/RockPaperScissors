@@ -29,6 +29,7 @@ const computerSelection = document.getElementById('computerChoice');
 const count = document.getElementById('roundNo');
 const humanRecord = document.getElementById('humanScore');
 const computerRecord = document.getElementById('computerScore');
+const resultText = document.getElementById('result');
 
 function RestartGame()
 {
@@ -60,27 +61,35 @@ function playRound(event)
     humanRecord.textContent = `Human Score : ${humanScore}`;
     computerRecord.textContent = `Computer Score : ${computerScore}`;
 
+    if(humanChoice === computerChoice)
+    {
+        resultText = "Oops! It's a tie!";
+    }
 
     if( humanChoice === RPS[0] && computerChoice === RPS[1] ||
         humanChoice === RPS[1] && computerChoice === RPS[2] ||
         humanChoice === RPS[2] && computerChoice === RPS[0] 
     )
     {
-        document.getElementById('result').textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
+        resultText.textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
     }
     else 
     {
-        document.getElementById('result').textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+        resultText.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
     }
 
-    if((humanScore > computerScore) && roundCount === 6)
+    if(roundCount === 6)
     {
-        document.getElementById('winner').textContent = `Round Winner : You!`;
-        RestartGame();
-    }
-    else if((humanScore < computerScore) && roundCount === 6)
-    {
-        document.getElementById('winner').textContent = `Round Winner : Computer!`;
+        if(humanScore > computerScore)
+        {
+            document.getElementById('winner').textContent = `Round Winner : You!`;
+        }
+        else
+        {
+            document.getElementById('winner').textContent = `Round Winner : Computer!`;
+        }
         RestartGame();
     }
 }
@@ -92,15 +101,17 @@ const Restart = document.createElement("button");
 
 Rock.textContent = "Rock";
 Paper.textContent = "Paper";
-scissor.textContent = "Scissors";
+Scissor.textContent = "Scissors";
 Restart.textContent = "Restart";
 
-const div = document.querySelector('content');
+const buttons = [Rock, Paper, Scissors];
+
+const div = document.querySelector('.content');
 const restartDiv = document.getElementById('restart');
 restartDiv.appendChild(Restart);
 Restart.addEventListener('click', RestartGame);
 
-[Rock, Paper, Scissors].forEach(button => {
+buttons.forEach(button => {
     div.appendChild(button);
     button.addEventListener('click', playRound);
 })
