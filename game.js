@@ -20,3 +20,20 @@ function getHumanChoice()
 
     return answer;
 }
+
+let humanScore = 0;
+let computerScore = 0;
+let roundCount = 0;
+
+function playRound()
+{
+    let humanChoice = getHumanChoice();
+    console.log("human choice : ", humanChoice);
+
+    let computerChoice = getComputerChoice();
+    console.log('computer choice : ', computerChoice);
+
+    roundCount++;
+
+    
+}
