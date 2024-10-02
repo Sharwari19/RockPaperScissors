@@ -1,6 +1,11 @@
 # RockPaperScissors
 This is a simple console-based Rock Paper Scissors game implemented in JavaScript. The project is part of the assignments from The Odin Project.
 
+## Live Preview
+
+You can check out the live version of the Rock-Paper-Scissors project [here](https://sharwari19.github.io/RockPaperScissors/).
+
+
 # Table Of Contents
 
 * Overview
